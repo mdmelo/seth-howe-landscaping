@@ -1,0 +1,293 @@
+{% extends "base.html" %}
+
+{% block title %}Project Gallery - Seth Howe Landscaping{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-5 bg-success text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-4">Project Gallery</h1>
+                <p class="lead">Explore our portfolio of professional landscaping projects</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Categories -->
+<section class="py-3 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav nav-pills justify-content-center" id="galleryTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="all-tab" data-bs-toggle="pill" data-bs-target="#all" type="button">All Projects</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="landscape-tab" data-bs-toggle="pill" data-bs-target="#landscape" type="button">Landscape Design</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="hardscape-tab" data-bs-toggle="pill" data-bs-target="#hardscape" type="button">Hardscape</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="trees-tab" data-bs-toggle="pill" data-bs-target="#trees" type="button">Tree Care</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Content -->
+<section class="py-5">
+    <div class="container">
+        <div class="tab-content" id="galleryTabContent">
+            <!-- All Projects Tab -->
+            <div class="tab-pane fade show active" id="all" role="tabpanel">
+                <div class="row g-4">
+                    <!-- Professional Landscaping Work -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="gallery-item">
+                            <img src="https://pixabay.com/get/g4a3986072a93fe88d2cd123b71be9368f66428ca19a0e00fa6db5e5a2e2ec7535ca28225165db0573e2234c82fdfa4fa7c277bc7c3646fa25c8cb6db7933aea2_1280.jpg" alt="Professional Landscape Installation" class="img-fluid rounded shadow gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <div class="gallery-overlay">
+                                <h5 class="text-white">Complete Landscape Installation</h5>
+                                <p class="text-white">Residential property transformation with native plantings</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="gallery-item">
+                            <img src="https://pixabay.com/get/g14ab2567fcb9bb3ac0990db4e59dfcf3aeba13767bce4075b0eb52c0b28679f1ba344e5abadab414d2742721fc932bdcb4608facd7d69dcb28020df91801d278_1280.jpg" alt="Professional Garden Design" class="img-fluid rounded shadow gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <div class="gallery-overlay">
+                                <h5 class="text-white">Sustainable Garden Design</h5>
+                                <p class="text-white">Water-wise landscaping with year-round interest</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="gallery-item">
+                            <img src="https://pixabay.com/get/ge16f40fe11b8721185433d5638ae6225df9fc43dcca6f13cdf04ce773994344ce138c26ea6c9807fd4a7a4db1cf594622312bbccf93abd67d4091b01ce52c54a_1280.jpg" alt="Commercial Landscaping" class="img-fluid rounded shadow gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <div class="gallery-overlay">
+                                <h5 class="text-white">Commercial Property Design</h5>
+                                <p class="text-white">Professional landscaping for business complex</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Garden Design Examples -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="gallery-item">
+                            <img src="https://pixabay.com/get/g7e6074ac68d996ec61bb6108fe6baf9c0c824caa3dc9acd2353a1d8a8eb1fadd06aa6d6ca7fa3c10f19d7ec2b9185f7b22257d0248ed0c24c445b2423e8cd99c_1280.jpg" alt="Perennial Garden Design" class="img-fluid rounded shadow gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <div class="gallery-overlay">
+                                <h5 class="text-white">Perennial Garden Showcase</h5>
+                                <p class="text-white">Four-season garden with native perennials</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="gallery-item">
+                            <img src="https://pixabay.com/get/gba23fd20eeca3d0b3e63469313c45691c2ac1836ec0c4400ffa3682c844d3a3d0f539997dcf81de132cba2b3cf5df052ebaae97180de475dcba09d8668195bf2_1280.jpg" alt="Cottage Garden Style" class="img-fluid rounded shadow gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <div class="gallery-overlay">
+                                <h5 class="text-white">Cottage Garden Transformation</h5>
+                                <p class="text-white">Charming mixed border with seasonal color</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="gallery-item">
+                            <img src="https://pixabay.com/get/gd946773c831d5ab6f596fb61c82fa34145c0d9328d7b262e0d7c63fd9c6390de6641fa299e95f68f175e5a63f3b480084cf2862d12ff1ec367378aa7c711c9ed_1280.jpg" alt="Formal Garden Design" class="img-fluid rounded shadow gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <div class="gallery-overlay">
+                                <h5 class="text-white">Formal Garden Layout</h5>
+                                <p class="text-white">Structured design with architectural plantings</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hardscape Projects -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="gallery-item">
+                            <img src="https://pixabay.com/get/g8e055f4cea0a2f0ec06e4321952fafe616862023a72752dd02b13671e25023e4011f2c7dba59370902d7a105d42742f5870e459c7412d9bbe10c9f5d55c457ec_1280.jpg" alt="Stone Patio Design" class="img-fluid rounded shadow gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <div class="gallery-overlay">
+                                <h5 class="text-white">Natural Stone Patio</h5>
+                                <p class="text-white">Custom hardscape with integrated planters</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="gallery-item">
+                            <img src="https://pixabay.com/get/g778fa77a6badf19514c67582a26d2a2bdb40cefeb0f8dd8a6c20cd3a5d3567866db1e582c7db89d23a4ab6e397802a6884639361a1d9c6edb9403d803a31d35f_1280.jpg" alt="Garden Pathway" class="img-fluid rounded shadow gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <div class="gallery-overlay">
+                                <h5 class="text-white">Garden Pathway Design</h5>
+                                <p class="text-white">Curved walkway with natural stone</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="gallery-item">
+                            <img src="https://pixabay.com/get/g5d29f7478219f4ad71b3a1987ccb03940842f9863eb279ea25189281bdbc8cf6d7465bcae82834d7d9e76711269fe0a935281e97b510cc2d2ee8ac9d54c9c5fe_1280.jpg" alt="Retaining Wall Design" class="img-fluid rounded shadow gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <div class="gallery-overlay">
+                                <h5 class="text-white">Terraced Retaining Walls</h5>
+                                <p class="text-white">Functional design with planted terraces</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tree Care Services -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="gallery-item">
+                            <img src="https://pixabay.com/get/g9ce5d56b7f271b6a3629adc12393a0c0e448b0a81eb2a3d19504a7284acbd989729a1e4e0109bc167ee4ec588298d7c38ff0ba1d679e3f257a08ecc5f4554dc7_1280.jpg" alt="Professional Tree Pruning" class="img-fluid rounded shadow gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <div class="gallery-overlay">
+                                <h5 class="text-white">Professional Tree Pruning</h5>
+                                <p class="text-white">Expert pruning for tree health and safety</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="gallery-item">
+                            <img src="https://pixabay.com/get/g1997fa3b40979a747e661f80148641ed2e200906d8afa4a61098ce26206c9b3f411a88cd0ea9e0e685b7e22e94bb65a261acbf078189d5b9042eb6ccf8a8b076_1280.jpg" alt="Tree Health Assessment" class="img-fluid rounded shadow gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <div class="gallery-overlay">
+                                <h5 class="text-white">Tree Health Assessment</h5>
+                                <p class="text-white">Comprehensive evaluation and treatment plan</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="gallery-item">
+                            <img src="https://pixabay.com/get/g1c451f97d8d68eb5075e09e6bf1d069479377ecf141eb33bc5a9353ec5e56676c36acd149d4367cb23efd60791663072c9346692fba30b68146a8ac6f5595344_1280.jpg" alt="Mature Tree Care" class="img-fluid rounded shadow gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <div class="gallery-overlay">
+                                <h5 class="text-white">Mature Tree Restoration</h5>
+                                <p class="text-white">Specialized care for heritage trees</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Professional Work -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="gallery-item">
+                            <img src="https://pixabay.com/get/gd7c9fd8173bd4092c0f7f71dae56ad13e24624542477d2aa1d73c4708874acc1f5458d2ed3d36f741015630e4e0caa24783758122aa471bd4e5937cff986e330_1280.jpg" alt="Maintenance Program" class="img-fluid rounded shadow gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <div class="gallery-overlay">
+                                <h5 class="text-white">Ongoing Maintenance</h5>
+                                <p class="text-white">Professional landscape maintenance program</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="gallery-item">
+                            <img src="https://pixabay.com/get/g94f057f32ba9a554d7869188791ef4cb993cf572c5b70be17fc0f38d77b888ce36fe972dd05a8009db610b119cf6d68df8e8157b8c6dd3b8b18a66ff6674f139_1280.jpg" alt="Sustainable Landscaping" class="img-fluid rounded shadow gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <div class="gallery-overlay">
+                                <h5 class="text-white">Eco-Friendly Design</h5>
+                                <p class="text-white">Sustainable practices and native plants</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="gallery-item">
+                            <img src="https://pixabay.com/get/g040b12c6d6fe4072c77b878d1946371a8f54add266b1b74caab1c4f105f4c8b460c5fd357eed0c73a0ec6e72c7dccc72b55bdccd4b4ef0f2c175d376675d6ae8_1280.jpg" alt="Problem Solving" class="img-fluid rounded shadow gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <div class="gallery-overlay">
+                                <h5 class="text-white">Creative Problem Solving</h5>
+                                <p class="text-white">Innovative solutions for challenging sites</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- More Gallery Items -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="gallery-item">
+                            <img src="https://pixabay.com/get/ga86037a25010a49a5bd856aa06f83d9591252d3e3b37b62c2ad0de4355b1deb13687cabc7d95ba88797a139cc04912038b38875b568737d278667ef38f3c3ba2_1280.jpg" alt="Contemporary Garden" class="img-fluid rounded shadow gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <div class="gallery-overlay">
+                                <h5 class="text-white">Contemporary Garden</h5>
+                                <p class="text-white">Modern design with clean lines</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="gallery-item">
+                            <img src="https://pixabay.com/get/gf8017735e5c73e9add718a60ea6fb98e4e763e69778610e1255d52280e6965901d7dc2b26d00a70fa6807788137f03ff5215ef75f6286eb1a064ef8dafcddf5c_1280.jpg" alt="Outdoor Living Space" class="img-fluid rounded shadow gallery-image" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <div class="gallery-overlay">
+                                <h5 class="text-white">Outdoor Living Integration</h5>
+                                <p class="text-white">Seamless indoor-outdoor connection</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Individual Category Tabs would be filtered versions of the above -->
+            <!-- For brevity, showing the structure for one additional tab -->
+            <div class="tab-pane fade" id="landscape" role="tabpanel">
+                <div class="row g-4">
+                    <!-- Only landscape design images would be shown here -->
+                    <!-- Implementation would filter the above gallery items -->
+                </div>
+            </div>
+
+            <!-- Similar structure for hardscape and trees tabs -->
+        </div>
+    </div>
+</section>
+
+<!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Project Image</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-0">
+                <img src="" alt="" class="img-fluid w-100" id="modalImage">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action -->
+<section class="py-5 bg-success text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="display-6 fw-bold mb-3">Ready to Create Your Dream Landscape?</h2>
+                <p class="lead mb-0">Let's discuss how we can transform your outdoor space with the same level of expertise and attention to detail.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">
+                    <i class="fas fa-camera me-2"></i>Start Your Project
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Gallery modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const galleryImages = document.querySelectorAll('.gallery-image');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('imageModalLabel');
+    
+    galleryImages.forEach(function(img) {
+        img.addEventListener('click', function() {
+            const src = this.getAttribute('src');
+            const alt = this.getAttribute('alt');
+            modalImage.setAttribute('src', src);
+            modalImage.setAttribute('alt', alt);
+            modalTitle.textContent = alt;
+        });
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section position-relative">
+    <div class="hero-bg" style="background-image: url('https://pixabay.com/get/g4a3986072a93fe88d2cd123b71be9368f66428ca19a0e00fa6db5e5a2e2ec7535ca28225165db0573e2234c82fdfa4fa7c277bc7c3646fa25c8cb6db7933aea2_1280.jpg');"></div>
+    <div class="hero-overlay"></div>
+    <div class="container position-relative">
+        <div class="row min-vh-100 align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold text-white mb-4">Transform Your Landscape with 20+ Years of Expertise</h1>
+                <p class="lead text-white mb-4">Professional landscape consulting services from Seth Howe - your trusted partner in creating beautiful, sustainable outdoor spaces.</p>
+                <div class="hero-buttons">
+                    <a href="{{ url_for('contact') }}" class="btn btn-success btn-lg me-3">Get Free Consultation</a>
+                    <a href="{{ url_for('services') }}" class="btn btn-outline-light btn-lg">View Services</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Overview -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto text-center mb-5">
+                <h2 class="display-5 fw-bold text-success mb-3">Expert Landscaping Services</h2>
+                <p class="lead">Comprehensive landscape solutions tailored to your needs and vision</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="service-card h-100 p-4 text-center bg-light rounded shadow-sm">
+                    <div class="service-icon mb-3">
+                        <i class="fas fa-drafting-compass fa-3x text-success"></i>
+                    </div>
+                    <h4 class="mb-3">Landscape Design</h4>
+                    <p>Custom landscape designs that blend functionality with natural beauty, tailored to your property and lifestyle.</p>
+                    <a href="{{ url_for('services') }}" class="btn btn-outline-success">Learn More</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card h-100 p-4 text-center bg-light rounded shadow-sm">
+                    <div class="service-icon mb-3">
+                        <i class="fas fa-mountain fa-3x text-success"></i>
+                    </div>
+                    <h4 class="mb-3">Hardscape Design</h4>
+                    <p>Professional hardscaping including patios, walkways, retaining walls, and outdoor living spaces.</p>
+                    <a href="{{ url_for('services') }}" class="btn btn-outline-success">Learn More</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card h-100 p-4 text-center bg-light rounded shadow-sm">
+                    <div class="service-icon mb-3">
+                        <i class="fas fa-tree fa-3x text-success"></i>
+                    </div>
+                    <h4 class="mb-3">Arborist Services</h4>
+                    <p>Expert tree care, health assessments, pruning, and removal services to maintain your landscape's vitality.</p>
+                    <a href="{{ url_for('services') }}" class="btn btn-outline-success">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Preview -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="https://pixabay.com/get/g14ab2567fcb9bb3ac0990db4e59dfcf3aeba13767bce4075b0eb52c0b28679f1ba344e5abadab414d2742721fc932bdcb4608facd7d69dcb28020df91801d278_1280.jpg" alt="Seth Howe Landscaping Professional" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold text-success mb-3">Meet Seth Howe</h2>
+                <p class="lead mb-4">With over 20 years of experience in landscape design and consulting, Seth brings unmatched expertise to every project.</p>
+                <ul class="list-unstyled mb-4">
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>20+ Years Professional Experience</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Licensed & Certified Arborist</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Sustainable Design Specialist</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Award-Winning Project Portfolio</li>
+                </ul>
+                <a href="{{ url_for('bio') }}" class="btn btn-success btn-lg">Learn More About Seth</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Preview -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center mb-5">
+                <h2 class="display-5 fw-bold text-success mb-3">What Our Clients Say</h2>
+                <p class="lead">Trusted by homeowners and businesses across the region</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="testimonial-card p-4 bg-light rounded shadow-sm h-100">
+                    <div class="stars mb-3">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    </div>
+                    <p class="mb-3">"Seth transformed our backyard into a beautiful oasis. His expertise and attention to detail exceeded our expectations."</p>
+                    <strong>- Sarah & Mike Johnson</strong>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card p-4 bg-light rounded shadow-sm h-100">
+                    <div class="stars mb-3">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    </div>
+                    <p class="mb-3">"Professional, knowledgeable, and reliable. Seth's landscape design increased our property value significantly."</p>
+                    <strong>- David Chen</strong>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card p-4 bg-light rounded shadow-sm h-100">
+                    <div class="stars mb-3">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    </div>
+                    <p class="mb-3">"Outstanding tree care services. Seth saved our century-old oak tree and restored our entire landscape."</p>
+                    <strong>- Maria Rodriguez</strong>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ url_for('testimonials') }}" class="btn btn-outline-success btn-lg">Read More Testimonials</a>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-success text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="display-6 fw-bold mb-3">Ready to Transform Your Landscape?</h2>
+                <p class="lead mb-0">Contact Seth today for a free consultation and discover how professional landscape consulting can enhance your property.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">
+                    <i class="fas fa-phone me-2"></i>Get Free Consultation
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

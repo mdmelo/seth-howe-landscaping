@@ -1,0 +1,292 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Seth Howe - Professional Landscape Consulting{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-5 bg-success text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 fw-bold mb-4">Contact Seth Howe</h1>
+                <p class="lead">Ready to transform your landscape? Let's discuss your project and schedule a consultation.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Information & Form -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Contact Information -->
+            <div class="col-lg-5">
+                <h2 class="h3 text-success mb-4">Get In Touch</h2>
+                <p class="lead mb-4">Ready to start your landscape transformation? Contact Seth today for a free consultation and discover how professional expertise can enhance your outdoor space.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item d-flex align-items-center mb-4">
+                        <div class="contact-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Phone</h5>
+                            <p class="mb-0"><a href="tel:+15551234567" class="text-decoration-none">(555) 123-4567</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item d-flex align-items-center mb-4">
+                        <div class="contact-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Email</h5>
+                            <p class="mb-0"><a href="mailto:seth@sethhowelandscaping.com" class="text-decoration-none">seth@sethhowelandscaping.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item d-flex align-items-center mb-4">
+                        <div class="contact-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Service Area</h5>
+                            <p class="mb-0">Greater Metro Area<br>
+                            <small class="text-muted">Within 50 miles of downtown</small></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item d-flex align-items-center mb-4">
+                        <div class="contact-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Business Hours</h5>
+                            <p class="mb-0">Monday - Friday: 8:00 AM - 6:00 PM<br>
+                            Saturday: 9:00 AM - 4:00 PM<br>
+                            Sunday: By appointment</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social Media -->
+                <div class="social-section mt-5">
+                    <h4 class="text-success mb-3">Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="btn btn-outline-success me-2 mb-2">
+                            <i class="fab fa-facebook me-2"></i>Facebook
+                        </a>
+                        <a href="#" class="btn btn-outline-success me-2 mb-2">
+                            <i class="fab fa-instagram me-2"></i>Instagram
+                        </a>
+                        <a href="#" class="btn btn-outline-success me-2 mb-2">
+                            <i class="fab fa-linkedin me-2"></i>LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="col-lg-7">
+                <div class="contact-form bg-light p-4 rounded shadow-sm">
+                    <h3 class="text-success mb-4">Send a Message</h3>
+                    
+                    <form method="POST" action="{{ url_for('contact') }}">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Full Name *</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" name="phone">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="service" class="form-label">Service Interest</label>
+                                <select class="form-select" id="service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="landscape-design">Landscape Design</option>
+                                    <option value="hardscape-design">Hardscape Design</option>
+                                    <option value="arborist-services">Arborist Services</option>
+                                    <option value="maintenance-planning">Maintenance Planning</option>
+                                    <option value="problem-diagnosis">Problem Diagnosis</option>
+                                    <option value="consultation">General Consultation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Please describe your project, property size, specific challenges, and any questions you have..." required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="newsletter" name="newsletter">
+                                    <label class="form-check-label" for="newsletter">
+                                        I'd like to receive seasonal landscape tips and updates
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>Send Message
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Service Areas -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center mb-5">
+                <h2 class="display-5 fw-bold text-success mb-4">Service Areas</h2>
+                <p class="lead">Seth provides professional landscape consulting services throughout the greater metro area</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="service-area-card text-center p-4 bg-white rounded shadow-sm h-100">
+                    <i class="fas fa-city fa-3x text-success mb-3"></i>
+                    <h5 class="mb-3">Urban Properties</h5>
+                    <p>City homes, condominiums, and small urban lots requiring creative design solutions and space optimization.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-area-card text-center p-4 bg-white rounded shadow-sm h-100">
+                    <i class="fas fa-home fa-3x text-success mb-3"></i>
+                    <h5 class="mb-3">Suburban Residential</h5>
+                    <p>Suburban homes with established neighborhoods, focusing on curb appeal and functional outdoor living spaces.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-area-card text-center p-4 bg-white rounded shadow-sm h-100">
+                    <i class="fas fa-building fa-3x text-success mb-3"></i>
+                    <h5 class="mb-3">Commercial Properties</h5>
+                    <p>Business complexes, office buildings, and commercial properties requiring professional, low-maintenance designs.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-lg-8 mx-auto">
+                <div class="bg-white p-4 rounded shadow-sm">
+                    <h4 class="text-success mb-3">Coverage Area Details</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="mb-2">Primary Service Area (Free Consultations):</h6>
+                            <ul class="list-unstyled mb-3">
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Downtown Metro Area</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Westfield & Surrounding Communities</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Oakwood District</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Riverside Neighborhoods</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="mb-2">Extended Service Area:</h6>
+                            <ul class="list-unstyled mb-3">
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Hillcrest & Valley View</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Brookfield & University Heights</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Surrounding Rural Properties</li>
+                                <li><i class="fas fa-check-circle text-success me-2"></i>Up to 50 miles from downtown</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="text-muted small mb-0">* Travel fees may apply for locations outside the primary service area</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold text-success mb-5 text-center">Frequently Asked Questions</h2>
+                
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                                What does a landscape consultation include?
+                            </button>
+                        </h2>
+                        <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                A comprehensive consultation includes site analysis, soil assessment, discussion of your goals and budget, evaluation of existing plants and structures, identification of challenges and opportunities, and preliminary recommendations. The initial consultation is free within our primary service area.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                                How long does a typical project take?
+                            </button>
+                        </h2>
+                        <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Project timelines vary based on scope and complexity. A design consultation may take 1-2 weeks, while complete landscape designs can take 2-4 weeks. Implementation depends on your contractor and seasonal factors. Seth provides realistic timelines during the consultation phase.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                                Do you provide installation services?
+                            </button>
+                        </h2>
+                        <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Seth specializes in design and consulting rather than installation. However, he works with a network of trusted contractors and can provide referrals. He also offers oversight services to ensure your project is implemented according to the design specifications.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+                                What is your approach to sustainable landscaping?
+                            </button>
+                        </h2>
+                        <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Seth prioritizes native plants, water conservation, soil health, and ecosystem support in all designs. He creates landscapes that require minimal inputs while providing maximum environmental benefits, including wildlife habitat, stormwater management, and carbon sequestration.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Emergency Contact -->
+<section class="py-4 bg-warning">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h4 class="mb-2"><i class="fas fa-exclamation-triangle me-2"></i>Emergency Tree Services</h4>
+                <p class="mb-0">For urgent tree-related safety issues, storm damage, or emergency situations, call Seth directly at (555) 123-4567</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="tel:+15551234567" class="btn btn-dark btn-lg">
+                    <i class="fas fa-phone me-2"></i>Emergency Call
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

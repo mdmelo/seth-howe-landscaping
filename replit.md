@@ -15,8 +15,10 @@ This is a professional landscaping business website for Seth Howe Landscaping, b
 
 ### Backend Architecture
 - **Framework**: Flask (Python web framework)
-- **Application Structure**: Single-file Flask application (`app.py`) with route handlers
+- **Database**: PostgreSQL with SQLAlchemy ORM for data persistence
+- **Application Structure**: Flask application with models (`models.py`) and route handlers (`app.py`)
 - **Email Service**: Flask-Mail integration for contact form functionality
+- **Admin Interface**: Custom admin dashboard for managing contact submissions
 - **Configuration**: Environment variable-based configuration for deployment flexibility
 
 ## Key Components

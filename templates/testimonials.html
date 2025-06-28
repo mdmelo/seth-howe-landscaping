@@ -19,62 +19,45 @@
 <section class="py-5">
     <div class="container">
         <div class="row g-4">
-            <!-- Testimonial 1 -->
+            {% for testimonial in testimonials %}
             <div class="col-lg-6">
-                <div class="testimonial-card p-4 bg-light rounded shadow-sm h-100">
-                    <div class="stars mb-3">
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
+                <div class="testimonial-card p-4 bg-light rounded shadow-sm h-100{% if testimonial.is_featured %} border border-success{% endif %}">
+                    {% if testimonial.is_featured %}
+                    <div class="badge bg-success mb-2">
+                        <i class="fas fa-star me-1"></i>Featured Review
                     </div>
-                    <h5 class="mb-3">Complete Backyard Transformation</h5>
-                    <p class="mb-3">"Seth completely transformed our backyard from a barren, problem-filled space into a stunning garden oasis. His expertise in plant selection was evident from day one - he knew exactly which plants would thrive in our specific soil conditions and microclimate. The hardscape design he created, including a beautiful stone patio and winding pathways, perfectly complements the natural plantings. Three years later, everything is thriving exactly as he predicted. Worth every penny!"</p>
+                    {% endif %}
+                    <div class="stars mb-3">
+                        {% for i in range(testimonial.rating) %}
+                        <i class="fas fa-star text-warning"></i>
+                        {% endfor %}
+                        {% for i in range(5 - testimonial.rating) %}
+                        <i class="far fa-star text-warning"></i>
+                        {% endfor %}
+                    </div>
+                    {% if testimonial.project_description %}
+                    <h5 class="mb-3">{{ testimonial.project_description }}</h5>
+                    {% endif %}
+                    <p class="mb-3">"{{ testimonial.testimonial_text }}"</p>
                     <div class="client-info">
-                        <strong>Sarah & Mike Johnson</strong>
-                        <small class="text-muted d-block">Residential Landscape Design - Westfield</small>
+                        <strong>{{ testimonial.client_name }}</strong>
+                        <small class="text-muted d-block">
+                            {% if testimonial.service_type %}{{ testimonial.service_type }}{% endif %}
+                            {% if testimonial.service_type and testimonial.client_location %} - {% endif %}
+                            {% if testimonial.client_location %}{{ testimonial.client_location }}{% endif %}
+                        </small>
                     </div>
                 </div>
             </div>
+            {% endfor %}
 
-            <!-- Testimonial 2 -->
-            <div class="col-lg-6">
-                <div class="testimonial-card p-4 bg-light rounded shadow-sm h-100">
-                    <div class="stars mb-3">
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                    </div>
-                    <h5 class="mb-3">Exceptional Tree Care Expertise</h5>
-                    <p class="mb-3">"As a certified arborist, Seth saved our 100-year-old oak tree that two other 'experts' said needed to be removed. His diagnostic skills are incredible - he identified a root rot issue that others missed and developed a treatment plan that brought our tree back to full health. He also redesigned our entire front landscape to better complement the mature trees. His knowledge of tree-plant relationships is unmatched. Highly recommend!"</p>
-                    <div class="client-info">
-                        <strong>David Chen</strong>
-                        <small class="text-muted d-block">Arborist Services & Landscape Design - Oakwood</small>
-                    </div>
-                </div>
+            {% if not testimonials %}
+            <div class="col-12 text-center py-5">
+                <i class="fas fa-comments fa-3x text-muted mb-3"></i>
+                <h4 class="text-muted">No Testimonials Available</h4>
+                <p class="text-muted">Client testimonials will be displayed here once available.</p>
             </div>
-
-            <!-- Testimonial 3 -->
-            <div class="col-lg-6">
-                <div class="testimonial-card p-4 bg-light rounded shadow-sm h-100">
-                    <div class="stars mb-3">
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                    </div>
-                    <h5 class="mb-3">Professional Commercial Project</h5>
-                    <p class="mb-3">"Seth designed and oversaw the landscape installation for our new office complex. His attention to detail and professional approach impressed our entire team. He created a design that looks beautiful year-round while requiring minimal maintenance - exactly what we needed for a commercial property. The native plant selections have attracted local wildlife and created a peaceful environment for our employees. The project came in on time and on budget."</p>
-                    <div class="client-info">
-                        <strong>Maria Rodriguez</strong>
-                        <small class="text-muted d-block">Commercial Landscape Design - Downtown Business District</small>
-                    </div>
-                </div>
-            </div>
+            {% endif %}
 
             <!-- Testimonial 4 -->
             <div class="col-lg-6">

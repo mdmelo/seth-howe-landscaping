@@ -1,12 +1,13 @@
 """Database utilities and initialization"""
 import os
 from flask import current_app
-from app import db
-from models import ContactSubmission, Testimonial, GalleryItem, ServiceInquiry
 
 def init_database():
     """Initialize the database with tables and sample data"""
     try:
+        # Import here to avoid circular imports
+        from app import db
+        
         # Create all tables
         db.create_all()
         current_app.logger.info("Database tables created successfully")
@@ -21,6 +22,10 @@ def init_database():
 def add_sample_data():
     """Add sample testimonials and gallery items if they don't exist"""
     try:
+        # Import here to avoid circular imports
+        from app import db
+        from models import ContactSubmission, Testimonial, GalleryItem, ServiceInquiry
+        
         # Check if we already have data
         if Testimonial.query.first() is None:
             sample_testimonials = [
@@ -158,6 +163,7 @@ def add_sample_data():
         current_app.logger.info("Sample data added successfully")
         
     except Exception as e:
+        from app import db
         db.session.rollback()
         current_app.logger.error(f"Error adding sample data: {str(e)}")
         raise
@@ -165,6 +171,7 @@ def add_sample_data():
 def reset_database():
     """Reset the database (drop and recreate all tables)"""
     try:
+        from app import db
         db.drop_all()
         db.create_all()
         add_sample_data()
@@ -176,6 +183,7 @@ def reset_database():
 def get_database_info():
     """Get information about the current database"""
     try:
+        from app import db
         engine = db.engine
         
         # Get table names safely
@@ -205,6 +213,9 @@ def get_database_info():
 def get_database_stats():
     """Get database statistics"""
     try:
+        from app import db
+        from models import ContactSubmission, Testimonial, GalleryItem, ServiceInquiry
+        
         stats = {}
         
         # Count records in each table

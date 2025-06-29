@@ -55,6 +55,54 @@
     </div>
 </section>
 
+<!-- Database Management -->
+<section class="py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="h5 text-success mb-3">Database Management</h3>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-database fa-2x text-success mb-2"></i>
+                                <h6>Database Info</h6>
+                                <button class="btn btn-outline-success btn-sm" onclick="showDatabaseInfo()">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-chart-bar fa-2x text-success mb-2"></i>
+                                <h6>Database Stats</h6>
+                                <button class="btn btn-outline-success btn-sm" onclick="showDatabaseStats()">
+                                    View Statistics
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-refresh fa-2x text-warning mb-2"></i>
+                                <h6>Reset Database</h6>
+                                <form method="POST" action="{{ url_for('reset_database') }}" onsubmit="return confirm('Are you sure? This will delete all data!')">
+                                    <button type="submit" class="btn btn-outline-warning btn-sm">
+                                        Reset with Sample Data
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Contact Submissions -->
 <section class="py-5">
     <div class="container">
@@ -225,6 +273,48 @@
         </div>
     </div>
 </section>
+
+<!-- Database Info Modal -->
+<div class="modal fade" id="databaseInfoModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Database Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="databaseInfoContent">
+                    <div class="text-center">
+                        <div class="spinner-border text-success" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Database Stats Modal -->
+<div class="modal fade" id="databaseStatsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Database Statistics</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="databaseStatsContent">
+                    <div class="text-center">
+                        <div class="spinner-border text-success" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block scripts %}
@@ -270,6 +360,127 @@ function exportContacts() {
 
 function viewAnalytics() {
     alert('Analytics feature coming soon! This will show submission trends, popular services, and conversion rates.');
+}
+
+function showDatabaseInfo() {
+    const modal = new bootstrap.Modal(document.getElementById('databaseInfoModal'));
+    modal.show();
+    
+    fetch('/api/database-info')
+        .then(response => response.json())
+        .then(data => {
+            const content = document.getElementById('databaseInfoContent');
+            if (data.error) {
+                content.innerHTML = `<div class="alert alert-danger">Error: ${data.error}</div>`;
+            } else {
+                content.innerHTML = `
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Database URL:</h6>
+                            <p class="text-muted">${data.url}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Database Type:</h6>
+                            <p class="text-muted">${data.dialect} (${data.driver})</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h6>Tables:</h6>
+                            <ul class="list-group">
+                                ${data.tables.map(table => `<li class="list-group-item">${table}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+        })
+        .catch(error => {
+            document.getElementById('databaseInfoContent').innerHTML = 
+                `<div class="alert alert-danger">Error loading database info: ${error}</div>`;
+        });
+}
+
+function showDatabaseStats() {
+    const modal = new bootstrap.Modal(document.getElementById('databaseStatsModal'));
+    modal.show();
+    
+    fetch('/api/database-stats')
+        .then(response => response.json())
+        .then(data => {
+            const content = document.getElementById('databaseStatsContent');
+            if (data.error) {
+                content.innerHTML = `<div class="alert alert-danger">Error: ${data.error}</div>`;
+            } else {
+                content.innerHTML = `
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-3">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h5 class="text-success">${data.contact_submissions}</h5>
+                                    <small>Contact Submissions</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h5 class="text-success">${data.testimonials}</h5>
+                                    <small>Testimonials</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h5 class="text-success">${data.gallery_items}</h5>
+                                    <small>Gallery Items</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h5 class="text-success">${data.service_inquiries}</h5>
+                                    <small>Service Inquiries</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h6>Recent Submissions:</h6>
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${data.recent_submissions.map(sub => `
+                                            <tr>
+                                                <td>${sub.name}</td>
+                                                <td>${sub.email}</td>
+                                                <td>${sub.submitted_at ? new Date(sub.submitted_at).toLocaleDateString() : 'N/A'}</td>
+                                                <td><span class="badge bg-secondary">${sub.status}</span></td>
+                                            </tr>
+                                        `).join('')}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        })
+        .catch(error => {
+            document.getElementById('databaseStatsContent').innerHTML = 
+                `<div class="alert alert-danger">Error loading database stats: ${error}</div>`;
+        });
 }
 </script>
 {% endblock %}
